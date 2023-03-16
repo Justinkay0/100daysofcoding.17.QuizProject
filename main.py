@@ -1,19 +1,9 @@
-class User:
-
-    def __init__(self, user_id, username):
-        self.id = user_id
-        self.username = username
-        self.followers = 0
-        self.following = 0
-
-    def follow(self, user):
-        user.followers += 1
-        self.following += 1
+from data import question_data
+from question_model import Question
 
 
-user_1 = User('619', 'Rey Mysterio')
-user_2 = User('888', 'Triple H')
+question_bank = []
+for qn in question_data:
+    question_bank.append((Question(qn['text'], qn['answer'])))
 
-user_1.follow(user_2)
-print(user_1.following)
-print(user_1.followers)
+print(question_bank[0].text)
